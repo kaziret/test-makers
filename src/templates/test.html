@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>TEST with JS</title>
+</head>
+<style>
+p input{
+  -webkit-appearance: checkbox;
+    box-sizing: border-box; 
+    width: 50px;
+    height: 50px;
+}
+body {
+  background: url(IMG_1420.jpg);
+  color: white;
+  width: 100%;
+  height: 700px;
+}
+.question {
+  display: flex;
+  justify-content: space-around;
+}
+input{
+  flex-direction: row;
+  margin-right: 50px;
+  margin: 0;
+}
+p{
+  font-size: 30px;
+}
+button{
+  width: 150px;
+  height: 50px;
+}
+</style>
+<body>
+<div id='main'>
+    <h1>Тест</h1>
+        <h1>2+5?</h1>
+    <div class="question"> 
+        <p><input type="checkbox" name="b" value="7">7</p>
+        <p><input type="checkbox" name="a" value="14">14</p>
+        <p><input type="checkbox" name="a" value="6">6</p>
+        <p><input type="checkbox" name="a" value="8">8</p>
+    </div>
+    <h1>4+?=16</h1>
+    <div class="question">
+        <p><input type="checkbox" name="a" value="6">6</p>
+        <p><input type="checkbox" name="b" value="12">12</p>
+        <p><input type="checkbox" name="a" value="9">9</p>
+        <p><input type="checkbox" name="a" value="4">4</p>
+    </div>
+    <h1>6*8=?</h1>
+    <div class="question">
+        <p><input type="checkbox" name="a" value="64">64</p>
+        <p><input type="checkbox" name="a" value="56">56</p>
+        <p><input type="checkbox" name="a" value="42">42</p>
+        <p><input type="checkbox" name="b" value="48">48</p>
+    </div>
+    <h1>187-96=?</h1>
+    <div class="question"> 
+        <p><input type="checkbox" name="a" value="81">81</p>
+        <p><input type="checkbox" name="b" value="91">91</p>
+        <p><input type="checkbox" name="a" value="93">93</p>
+        <p><input type="checkbox" name="a" value="64">64</p>
+    </div>
+    <h1>25*12</h1>
+    <div class="question">
+        <p><input type="checkbox" name="a" value="310">310</p>
+        <p><input type="checkbox" name="b" value="300">290</p>
+        <p><input type="checkbox" name="a" value="320">320</p>
+        <p><input type="checkbox" name="a" value="210">210</p>
+    </div>
+</div>
+<button type="button" onclick="result()">Take Result</button>
+    <p id='result'></p>
+</body>
+<script>
+function result(){
+    var main = document.getElementById('main')
+    var result = 0;
+    for (var i=0; i<main.children.length; i++){
+        for (var y=0; y<main.children[i].children.length; y++){
+            if (main.children[i].children[y].firstChild.getAttribute("name") == 'b' && main.children[i].children[y].firstChild.checked){
+              result += 1
+            }
+        }
+    };
+    document.getElementById('result').textContent = 'Your result: '+result
+}
+</script>
+</html>
